@@ -1,6 +1,7 @@
 const Aerospike = require('./node_modules/aerospike/lib/aerospike.js')
 const GeoJSON = Aerospike.GeoJSON;
-const crypto = require('crypto')
+
+import http from 'k6/http';
 
 // @ts-ignore
 import { Counter } from 'k6/metrics';
@@ -11,7 +12,7 @@ export const asOptions = {
     writeProps: {key: 'SEND'},
     namespace: 'test',
     set: 'demo',
-    hostsList: ['10.211.55.200:3000','10.211.55.201:3000'],
+    hostsList: ['localhost:3000'],
 }
 
     // const clientCount = new Counter('client_count');
@@ -29,8 +30,8 @@ export default (data) => {
     // clientCount.add(1);
 
 // Create the record key
-    var userKey = crypto.randomUUID();
-    let key = new Aerospike.Key(asOptions.namespace, asOptions.set, userKey);
+  //  var userKey = crypto.randomUUID();
+  //  let key = new Aerospike.Key(asOptions.namespace, asOptions.set, userKey);
 
 
     // Create the report map
