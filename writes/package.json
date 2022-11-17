@@ -4,17 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.19.3",
     "@types/node": "^18.11.9",
     "aerospike": "^5.1.1",
     "crypto": "^1.0.1",
-    "k6": "^0.0.0",
-    "mocker-data-generator": "^2.12.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@faker-js/faker": "^7.6.0",
+    "babel-loader": "^9.1.0",
+    "core-js": "^3.26.1",
+    "k6": "^0.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
   }
 }

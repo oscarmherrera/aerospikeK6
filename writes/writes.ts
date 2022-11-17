@@ -1,11 +1,10 @@
 const Aerospike = require('./node_modules/aerospike/lib/aerospike.js')
 const GeoJSON = Aerospike.GeoJSON;
-const crypto = require('crypto')
 
 // @ts-ignore
 import { Counter } from 'k6/metrics';
 // import mocker from 'mocker-data-generator'; // (ES6 or Typescript way)
-const mocker = require('mocker-data-generator');
+import { faker } from '@faker-js/faker';
 
 export const asOptions = {
     writeProps: {key: 'SEND'},
