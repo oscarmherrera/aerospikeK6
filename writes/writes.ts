@@ -1,9 +1,11 @@
-const Aerospike = require('aerospike')
+const Aerospike = require('./node_modules/aerospike/lib/aerospike.js')
 const GeoJSON = Aerospike.GeoJSON;
-import * as crypto from "crypto";
+const crypto = require('crypto')
+
 // @ts-ignore
 import { Counter } from 'k6/metrics';
-import mocker from 'mocker-data-generator' // (ES6 or Typescript way)
+// import mocker from 'mocker-data-generator'; // (ES6 or Typescript way)
+const mocker = require('mocker-data-generator');
 
 export const asOptions = {
     writeProps: {key: 'SEND'},
@@ -15,9 +17,10 @@ export const asOptions = {
     // const clientCount = new Counter('client_count');
 
 export function setup() {
+
 }
 
-export default async (data) => {
+export default (data) => {
 // Create a new write policy
     var writePolicy = new Aerospike.WritePolicy(asOptions.writeProps);
 
@@ -52,19 +55,17 @@ export default async (data) => {
         location: geoLoc,
     };
 
-    // Write the record to Aerospike
-    ;await (async () => {
+    //Write the record to Aerospike
         // Establishes a connection to the server
-        let client = await Aerospike.connect(config);
+        let client = Aerospike.connect(config);
         // clientCount.add(1);
-        await client.put(key, bins, [], writePolicy);
+        client.put(key, bins, [], writePolicy);
 
         // Close the connection to the server
         client.close();
-    })();
 
 }
-//
-// export function teardown(data) {
-//
-// }
+
+export function teardown(data) {
+
+}
