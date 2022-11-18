@@ -1,28 +1,47 @@
 {
+
   "compilerOptions": {
-    "module": "ES6",
-    "target": "ES5",
-    "lib": [
-      "ES6",
-      "ScriptHost",
-      "ES2016.Array.Include",
-      "DOM",
-      "DOM.Iterable",
-      "ESNext"
-    ],
+
+    // Target ECMAScript.
+
+    "target": "ES6",
+
+    // Search under node_modules for non-relative imports.
+
     "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
+
+    // Process & infer types from .js files.
+
     "allowJs": true,
+
+    // Don't emit; allow Babel to transform files.
+
     "noEmit": true,
+
+    // Enable strictest settings like strictNullChecks & noImplicitAny.
+
+    "strict": true,
+
+    // Disallow features that require cross-file information for emit.
+
     "isolatedModules": true,
+
+    // Import non-ES modules as default imports.
+
+    "esModuleInterop": true,
+
     "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx"
+
+    "noImplicitThis": true,
+
+    "strictNullChecks": true
+
   },
+
   "include": [
-    "src/**/*"
+
+    "src"
+
   ]
+
 }
